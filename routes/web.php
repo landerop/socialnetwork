@@ -11,6 +11,7 @@
 |
 */
 
+// Pages...
 Route::get('/', 'PagesController@welcome');
 
 Route::group(['namespace' => 'Auth'], function() {
@@ -33,9 +34,13 @@ Route::group(['namespace' => 'Auth'], function() {
     Route::post('password/reset', 'ResetPasswordController@reset')->name('password.reset');
 });
 
-Route::get('/home', 'HomeController@index');
+Route::get('home', 'HomeController@index');
 
-// Testing
+// Users...
+Route::get('users', 'UsersController@index')->name('users.index');
+Route::get('users/{user}', 'UsersController@show')->name('users.show');
+
+// Testing...
 Route::get('/test', function() {
     return view('test');
 });

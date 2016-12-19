@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Utilities\Country;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -69,5 +70,37 @@ class User extends Authenticatable
         $hash = md5($this->email);
 
         return 'https://www.gravatar.com/avatar/' . $hash . '/?d=mm&s=' . $size;
+    }
+
+   /**
+     * Returns the user's country name.
+     *
+     * @return string
+     */
+    private function getCountry()
+    {
+        return Country::find($this->country);
+    }
+
+    /**
+     * Returns the user's complete location (country and city).
+     *
+     * @return string
+     */
+    public function getLocationAttribute()
+    {
+        if ($this->country && $this->city) {
+            return "{$this->city}, {$this->getCountry()}";
+        }
+
+        if ($this->country) {
+            return $this->getCountry();
+        }
+
+        if ($this->city) {
+            return $this->city;
+        }
+
+        return null;
     }
 }
