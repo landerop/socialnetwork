@@ -9,7 +9,7 @@
 
                     <div class="panel-body">
                         <form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">
-                            <input type="hidden" name="_token" class="{{ csrf_token() }}">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                             @include('auth.partials.email')
 
