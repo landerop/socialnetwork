@@ -1,3 +1,7 @@
 * text=auto
 *.css linguist-vendored
-*.scss linguist-vendored
+*.less linguist-vendored
+composer.lock -diff
+public/css/**/*.css -diff
+public/js/**/*.js -diff
+public/fonts/**/* -diff
