@@ -40,6 +40,9 @@ Route::get('home', 'HomeController@index');
 Route::get('users', 'UsersController@index')->name('users.index');
 Route::get('users/{user}', 'UsersController@show')->name('users.show');
 
+// Search...
+Route::get('search', 'SearchController@index')->name('search.index');
+
 // Testing...
 Route::get('/test', function() {
     return view('test');

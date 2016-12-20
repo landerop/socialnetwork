@@ -35,11 +35,14 @@
             </ul>
 
             <!-- Search form -->
-            <form class="navbar-form navbar-left">
+            <form method="GET" action="{{ route('search.index') }}" class="navbar-form navbar-left">
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search">
+                    <input type="text" name="query" id="query" placeholder="Search" class="form-control">
                 </div>
-                <button type="submit" class="btn btn-default">Submit</button>
+
+                <button type="submit" class="btn btn-default">
+                    <i class="fa fa-search"></i>
+                </button>
             </form>
 
             <!-- Right side of navbar -->
